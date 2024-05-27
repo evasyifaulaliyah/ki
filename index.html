@@ -4,29 +4,57 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aplikasi Menyembunyikan Data dalam Gambar dengan PVD</title>
-    <link rel="stylesheet" href="styles.css" />
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+    <link rel="stylesheet" href="/src/output.css">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Staatliches&display=swap');
+      
+      
+              *{
+                  font-family: "Nunito", sans-serif;
+              }
+      
+              h1{
+                  font-family: "Poppins", sans-serif;
+              }
+      
+      
+          </style>      
   </head>
-  <body>
-    <div class="container">
-      <h1>Aplikasi Menyembunyikan Data dalam Gambar dengan PVD</h1>
-      <input type="file" id="imageInput" accept="image/*" />
+  <body class="bg-[#dedede] flex justify-center mt-4">
+    <div class="bg-white p-14 flex flex-col gap-4 rounded-xl">
+        <h1 class="font-semibold text-2xl max-w-[500px]">Aplikasi Menyembunyikan Data dalam Gambar dengan PVD</h1>
+
+      <div class="flex flex-col gap-4">
+          <label for="imageInput">Silahkan pilih gambar:</label>
+          <input name="imageInput" type="file" id="imageInput" accept="image/*" />
+      </div>
+
       <textarea
-        id="messageInput"
+        id="messageInput" class="border border-[#38bdf8] p-3 outline-[#2aafd9] outline-1 rounded-md"
         placeholder="Masukkan pesan yang ingin disembunyikan"
       ></textarea>
-      <button id="hideButton">Sembunyikan Pesan</button>
-      <button id="revealButton">Ungkap Pesan</button>
-      <div class="image-container">
-        <div>
-          <h2>Gambar Asli</h2>
-          <img id="originalImage" alt="Gambar Asli" />
-        </div>
-        <div>
-          <h2>Gambar dengan Pesan</h2>
-          <img id="stegoImage" alt="Gambar dengan Pesan" />
-        </div>
+
+      <div class="flex gap-5">
+          <button class="bg-[#38bdf8] text-white px-4 py-2 rounded-md hover:bg-[#2aafd9]" id="hideButton">Sembunyikan Pesan</button>
+          <button class="bg-[#38bdf8] text-white px-4 py-2 rounded-md hover:bg-[#2aafd9]" id="revealButton">Ungkap Pesan</button>
       </div>
-      <canvas id="canvas"></canvas>
+
+      <div class="image-container flex flex-col gap-4">
+        <div class="flex gap-10 justify-between">
+          <div class="flex flex-col gap-3">
+            <h2>Gambar Asli: </h2>
+            <img class="w-[250px]" id="originalImage" alt="Gambar Asli" />
+          </div>
+          <div class="flex flex-col gap-3">
+            <h2>Gambar dengan Pesan: </h2>
+            <img class="w-[250px]" id="stegoImage" alt="Gambar dengan Pesan" />
+          </div>  
+        </div>
+
+      </div>
+
+      <canvas class="w-[250px] hidden" id="canvas"></canvas>
       <p id="outputMessage"></p>
     </div>
     <script src="app.js"></script>
